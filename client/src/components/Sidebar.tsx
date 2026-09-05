@@ -1,10 +1,9 @@
 import { Link, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
-import { Moon, Sun, Plus, ScrollText, Map as MapIcon } from "lucide-react";
+import { Moon, Sun, Plus, ScrollText, Map as MapIcon, Heart } from "lucide-react";
 import type { Campaign } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-
 function D20Icon({ className }: { className?: string }) {
   return (
     <svg
@@ -24,7 +23,6 @@ function D20Icon({ className }: { className?: string }) {
     </svg>
   );
 }
-
 export function Sidebar({
   theme,
   onToggleTheme,
@@ -34,7 +32,6 @@ export function Sidebar({
 }) {
   const [location] = useLocation();
   const { data: campaigns } = useQuery<Campaign[]>({ queryKey: ["/api/campaigns"] });
-
   return (
     <aside className="hidden md:flex w-60 flex-col bg-sidebar border-r border-sidebar-border shrink-0">
       {/* Brand */}
@@ -46,7 +43,6 @@ export function Sidebar({
           </span>
         </Link>
       </div>
-
       {/* Navigation */}
       <ScrollArea className="flex-1">
         <nav className="p-3 space-y-3">
@@ -61,7 +57,6 @@ export function Sidebar({
             <MapIcon className="w-4 h-4" />
             Dashboard
           </Link>
-
           <div className="pt-2">
             <div className="px-3 mb-1 text-xs font-medium text-muted-foreground uppercase tracking-wider">
               Campaigns
@@ -90,6 +85,19 @@ export function Sidebar({
           </div>
         </nav>
       </ScrollArea>
+      {/* Ko-fi support link */}
+      <div className="px-3 pt-3">
+        
+          href="https://ko-fi.com/thewarhammerwarroom"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-3 py-2 rounded-md text-sm no-underline text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground transition-colors"
+          data-testid="link-kofi"
+        >
+          <Heart className="w-4 h-4" />
+          Support on Ko-fi
+        </a>
+      </div>
 
       {/* Theme toggle */}
       <div className="p-3 border-t border-sidebar-border">
