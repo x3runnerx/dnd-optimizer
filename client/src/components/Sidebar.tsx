@@ -93,13 +93,7 @@ export function Sidebar({
 
       {/* Ko-fi support link */}
       <div className="px-3 pt-3">
-        
-          href="https://ko-fi.com/thewarhammerwarroom"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-3 py-2 rounded-md text-sm no-underline text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground transition-colors"
-          data-testid="link-kofi"
-        >
+        <a href="https://ko-fi.com/thewarhammerwarroom" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-3 py-2 rounded-md text-sm no-underline text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground transition-colors" data-testid="link-kofi">
           <Heart className="w-4 h-4" />
           Support on Ko-fi
         </a>
